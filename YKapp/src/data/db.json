@@ -1,0 +1,64 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "author": "jean"
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "author": "edouard"
+    }
+  ],
+  "customers": [
+    {
+      "id": "65c2c54d978855fdb89d1157",
+      "name": "Mccall Erickson",
+      "email": "mccallerickson@genmex.com",
+      "phone": "+1 (855) 599-2322"
+    },
+    {
+      "id": "65c2c54d41c71b8b3bf35120",
+      "name": "Teri Schneider",
+      "email": "terischneider@genmex.com",
+      "phone": "+1 (864) 507-3051"
+    },
+    {
+      "id": "65c2c54d1ffeb11985e47d8f",
+      "name": "Love French",
+      "email": "lovefrench@genmex.com",
+      "phone": "+1 (976) 540-3012"
+    },
+    {
+      "id": "65c2c54d3ea79b5c8fbdb1ba",
+      "name": "Taylor Porter",
+      "email": "taylorporter@genmex.com",
+      "phone": "+1 (943) 441-3195"
+    },
+    {
+      "id": "65c2c54de40d30443f22da88",
+      "name": "Deirdre Woodard",
+      "email": "deirdrewoodard@genmex.com",
+      "phone": "+1 (927) 590-3729"
+    },
+    {
+      "id": "65c2c5a4bec96414a2f13350",
+      "name": "Boyd Gay",
+      "email": "boydgay@genmex.com",
+      "phone": "+1 (895) 443-2377"
+    },
+    {
+      "id": "65c2c5a4a54bf06e1c29b757",
+      "name": "Catalina Hines",
+      "email": "catalinahines@genmex.com",
+      "phone": "+1 (866) 598-2642"
+    },
+    {
+      "id": "feafae",
+      "name": "eaffaefea",
+      "email": "aeffea",
+      "phone": "faefeafae"
+    }
+  ]
+}
