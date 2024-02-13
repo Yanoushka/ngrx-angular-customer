@@ -9,6 +9,9 @@ export const ADD_CUSTOMER = "[customer] add customer"
 export const ADD_CUSTOMER_SUCCESS = "[customer] add customer success"
 export const ADD_CUSTOMER_FAIL = "[customer] add customer fail"
 
+export const GET_CUSTOMER = "[customer] get customer"
+export const GET_CUSTOMER_SUCCESS = "[customer] get customer success"
+
 export const UPDATE_CUSTOMER = "[customer] update customer"
 export const UPDATE_CUSTOMER_SUCCESS = "[customer] update customer success"
 export const UPDATE_CUSTOMER_FAIL = "[customer] update customer fail"
@@ -27,8 +30,11 @@ export const addCustomer = createAction(ADD_CUSTOMER, props<{ customer: Customer
 export const addCustomerSuccess = createAction(ADD_CUSTOMER_SUCCESS);
 export const addCustomerFail = createAction(ADD_CUSTOMER_FAIL);
 
+export const getCustomer = createAction(GET_CUSTOMER, props<{ id: string }>());
+export const getCustomerSuccess = createAction(GET_CUSTOMER_SUCCESS, props<{ editData: Customer }>());
+
 export const updateCustomer = createAction(UPDATE_CUSTOMER, props<{ customer: Customer }>());
-export const updateCustomerSuccess = createAction(UPDATE_CUSTOMER_SUCCESS);
+export const updateCustomerSuccess = createAction(UPDATE_CUSTOMER_SUCCESS, props<{ customer: Customer }>());
 export const updateCustomerFail = createAction(LOAD_CUSTOMER_FAIL);
 
 export const deleteCustomer = createAction(DELETE_CUSTOMER, props<{ id: string }>());

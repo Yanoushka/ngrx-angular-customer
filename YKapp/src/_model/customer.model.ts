@@ -8,4 +8,5 @@ export interface Customer {
 export interface CustomerModel {
     list: Customer[];
     errorMessage: String;
+    editData?: Customer;
 }

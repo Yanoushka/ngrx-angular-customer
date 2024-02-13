@@ -9,12 +9,14 @@ import {
     deleteCustomer,
     deleteCustomerSuccess,
     emptyAction,
+    getCustomer,
+    getCustomerSuccess,
     loadCustomer,
     loadCustomerFail,
     loadCustomerSuccess,
     showAlert,
     updateCustomer,
-    updateCustomerSuccess
+    updateCustomerSuccess,
 } from "./customer.actions";
 
 @Injectable()
@@ -56,18 +58,32 @@ export class CustomerEffects {
     )
 
     _updateCustomer = createEffect(() =>
+    this.action$.pipe(
+        ofType(updateCustomer),
+        switchMap((action) => {
+            return this.service.updateCustomer(action.customer).pipe(
+                switchMap((data) => {
+                    return of(
+                        updateCustomerSuccess(action),
+                        showAlert({ message: 'Edit success', responseType: 'pass' }))
+                }),
+                catchError((_err) => of(showAlert({ message: 'Edit failed', responseType: 'fail' })))
+            )
+        })
+    )
+)
+
+    _getCustomer = createEffect(() =>
         this.action$.pipe(
-            ofType(updateCustomer),
-            switchMap((action) => {
-                return this.service.updateCustomer(action.customer).pipe(
-                    switchMap(() => {
-                        return of(
-                            updateCustomerSuccess(),
-                            showAlert({ message: 'Update success', responseType: 'pass' }))
+            ofType(getCustomer),
+            exhaustMap((action) => {
+                return this.service.getCustomerById(action.id).pipe(
+                    map((data: any) => {
+                        return getCustomerSuccess({ editData: data })
                     }),
+                    catchError((_err) => of(emptyAction()))
                 )
-            }),
-            catchError((_err) => of(showAlert({ message: 'Update failed', responseType: 'fail' })))
+            })
         )
     )
 

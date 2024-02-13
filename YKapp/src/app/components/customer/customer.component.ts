@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Customer } from '../../../_model/customer.model';
 import { MaterialModule } from '../../../_module/material.module';
@@ -24,9 +24,7 @@ export class CustomerComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private store: Store) {
-
-  }
+  constructor(private store: Store, private router: Router) { }
 
   public ngOnInit(): void {
     this.loadData();
@@ -39,7 +37,6 @@ export class CustomerComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.customerData);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      console.log('customerData', this.customerData);
     });
   }
 
@@ -50,6 +47,6 @@ export class CustomerComponent implements OnInit {
   }
 
   public editCustomer(id: string): void {
-    
+    this.router.navigateByUrl(`/customer/edit/${id}`);
   }
 }
